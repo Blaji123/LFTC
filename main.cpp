@@ -1,25 +1,65 @@
 #include <iostream>
+#include <vector>
 
-// TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-int main() {
-    // TIP Press <shortcut actionId="RenameElement"/> when your caret is at the
-    // <b>lang</b> variable name to see how CLion can help you rename it.
-    auto lang = "C++";
-    std::cout << "Hello and welcome to " << lang << "!\n";
+const float pi = 3.14;
 
-    for (int i = 1; i <= 5; i++) {
-        // TIP Press <shortcut actionId="Debug"/> to start debugging your code.
-        // We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/>
-        // breakpoint for you, but you can always add more by pressing
-        // <shortcut actionId="ToggleLineBreakpoint"/>.
-        std::cout << "i = " << i << std::endl;
+float CalculateCircleArea(float radius)
+{
+    return pi * radius * radius;
+}
+
+float CalculateCirclePerimeter(float radius)
+{
+    return 2 * pi * radius;
+}
+
+int CalculateCmmdc(int a, int b)
+{
+    while(b!=0)
+    {
+        int r = a%b;
+        a = b;
+        b = r;
     }
+
+    return a;
+}
+
+int CalculateSum(int n, std::vector<int> arr)
+{
+    int sum = 0;
+
+    for(int i = 0; i < n; i++)
+    {
+        sum += arr[i];
+    }
+
+    return sum;
+}
+
+int main() {
+    float radius;
+    int a, b, n, num;
+    std::vector<int> arr;
+
+    std::cout << "Give the radius: ";
+    std::cin >> radius;
+    std::cout << CalculateCirclePerimeter(radius) << " " << CalculateCircleArea(radius) << std::endl;
+
+    std::cout << "Give a and b: ";
+    std::cin >> a >> b;
+    std::cout << CalculateCmmdc(a, b) << std::endl;
+
+    std::cout << "Give n: ";
+    std::cin >> n;
+
+    for(int i = 0; i < n; i++)
+    {
+        std::cin >> num;
+        arr.push_back(num);
+    }
+
+    std::cout << CalculateSum(n, arr) << std::endl;
 
     return 0;
 }
-
-// TIP See CLion help at <a
-// href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>.
-//  Also, you can try interactive lessons for CLion by selecting
-//  'Help | Learn IDE Features' from the main menu.

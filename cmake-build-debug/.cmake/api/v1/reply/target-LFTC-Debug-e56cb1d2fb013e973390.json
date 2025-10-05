@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "lab1_lftc.exe"
+			"path" : "LFTC.exe"
 		},
 		{
-			"path" : "lab1_lftc.pdb"
+			"path" : "LFTC.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -56,7 +56,7 @@
 			]
 		}
 	],
-	"id" : "lab1_lftc::@6890427a1f51a3e7e1df",
+	"id" : "LFTC::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -76,8 +76,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "lab1_lftc",
-	"nameOnDisk" : "lab1_lftc.exe",
+	"name" : "LFTC",
+	"nameOnDisk" : "LFTC.exe",
 	"paths" : 
 	{
 		"build" : ".",
