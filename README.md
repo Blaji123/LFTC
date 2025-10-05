@@ -33,7 +33,8 @@
  const = int | float.
  
  operation = "+" | "-" | "/" | "%" | "*".
- arith_expression = identifier operation identifier | identifier operation const | const operation const.
+ arith_expression = (identifier operation identifier | identifier operation const | const operation const) [arith_expressions].
+ arith_expressions = {arith_expression}.
  expression = identifier | const | arith_expression.
 
  cond_expr = logical_expr [ cond_exprs ].
@@ -47,7 +48,7 @@
 
  assign_instr = identifier "=" expression.
  read_instr = "blj_in" {">>" identifier}.
- write_instr = "blj_out" {"<<" (identifier | "endl")}.
+ write_instr = "blj_out" {"<<" (identifier | "endl" | string)}.
  decl_instr = datatype identifier ["=" expression].
  cond_instr = "if" "(" cond_expr ")" "{" instr_list "}" ["else" "{" instr "}"].
  while_instr = "while" "(" cond_expr ")" "{" instr "}".
@@ -55,4 +56,25 @@
  program = "begin" instr_list "end".
  
  
+</pre>
+
+**reserved keywords**: if, while, int, float, string, blj_in, blj_out, begin, end
+
+# 3 mini-programs:
+
+## 1:
+
+<pre>
+
+begin
+
+float pi = 3.14;
+float r;
+
+blj_out << "Give the radius: ";
+blj_in >> r;
+
+float perim = 2*pi*r;
+
+
 </pre>
