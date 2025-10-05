@@ -10,14 +10,14 @@
 
 ## Instructions:
 
- 1. **Assignment**: <pre> ```cpp variable "=" expression ``` </pre>
- 2. **Input/Output**: <pre> ```cpp "blj_in" {">>" identifier} ``` ```cpp "blj_out" {"<<" (identifier | "endl")}``` </pre>
- 3. **Conditional**: <pre> ```cpp "if" "(" cond_expr ")" "{" instr "}" ["else" "{" instr "}"] ``` </pre>
- 4. **Loop**: <pre> ```cpp "while" "(" cond_expr ")" "{" instr "}" ``` </pre>
+ 1. **Assignment**: <pre> ``` variable "=" expression ``` </pre>
+ 2. **Input/Output**: <pre> ``` "blj_in" {">>" identifier} ``` ``` "blj_out" {"<<" (identifier | "endl")}``` </pre>
+ 3. **Conditional**: <pre> ``` "if" "(" cond_expr ")" "{" instr "}" ["else" "{" instr "}"] ``` </pre>
+ 4. **Loop**: <pre> ``` "while" "(" cond_expr ")" "{" instr "}" ``` </pre>
 
 ## EBNF: 
 
-<pre>```cpp
+<pre>
 
  letter = "a" | ... | "z" | "A" | ... | "Z".
  digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9".
@@ -55,4 +55,4 @@
  program = "begin" instr_list "end".
  
  
-```</pre>
+</pre>
