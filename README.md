@@ -140,6 +140,7 @@ end
 </pre>
 
 ## 2:
+<pre>
 begin
 
 int n, b; // not defined in the mpl
@@ -149,3 +150,4 @@ blj_in >> n;
 n++; // not defined in the mpl
 
 end
+</pre>
