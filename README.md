@@ -29,12 +29,12 @@
  digits = digit { digit }.
  int = sign digits.
  float = sign digits [".", digits].
- string = letter { letter | digit}.
+ string = """ { letter | digit} """.
  const = int | float.
  
  operation = "+" | "-" | "/" | "%" | "*".
  arith_expression = (identifier operation identifier | identifier operation const | const operation const) [arith_expressions].
- arith_expressions = {arith_expression}.
+ arith_expressions = {(operation identifier | operation const)}.
  expression = identifier | const | arith_expression.
 
  cond_expr = logical_expr [ cond_exprs ].
@@ -44,7 +44,7 @@
  logical_oper = "&&" | "||".
 
  instr_list = [instr, {instr}].
- instr = (assign_instr | read_instr | write_instr | decl_instr) ";" | cond_instr | while_instr
+ instr = ((assign_instr | read_instr | write_instr | decl_instr) ";") | cond_instr | while_instr
 
  assign_instr = identifier "=" expression.
  read_instr = "blj_in" {">>" identifier}.
@@ -65,7 +65,6 @@
 ## 1:
 
 <pre>
-
 begin
 
 float pi = 3.14;
@@ -75,6 +74,78 @@ blj_out << "Give the radius: ";
 blj_in >> r;
 
 float perim = 2*pi*r;
+float area = pi*r*r;
 
+blj_out << perim << " " << area << endl;
 
+end
 </pre>
+
+## 2:
+<pre>
+begin
+
+int a;
+int b;
+
+blj_out << "Give a and b: ";
+blj_in >> a >> b;
+
+while (b!=0) {
+    int r = a%b;
+    a=b;
+    b=r;
+}
+
+blj_out << a;
+
+end
+</pre>
+
+## 3:
+<pre>
+begin
+
+int n;
+int num;
+int sum;
+blj_out << "Give n: ";
+blj_in >> n;
+
+while (n > 0) {
+    blj_in >> num;
+    sum = sum + num;
+    n = n - 1;
+}
+
+blj_out << sum;
+
+end
+</pre>
+
+# 2 program with errors
+
+## 1: 
+<pre>
+begin
+
+int a;
+int b;
+int c;
+
+sum = a + b + c // sum isn't declared, there is no ; at the end
+blj_out << sum;
+
+end
+</pre>
+
+## 2:
+begin
+
+int n, b; // not defined in the mpl
+
+blj_in >> n;
+
+n++; // not defined in the mpl
+
+end
